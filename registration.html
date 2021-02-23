@@ -238,14 +238,15 @@
                 method: 'POST',
                 body: data
             }).then((response) => {
-                console.log(response)
                 return response.json()
             }).then((res)=>{
                 if (res.status == "ok" && res.message == "sucess") {
                     alert('Form submitted successfully');
                     window.location.reload();
+                } else if (res.status == "error" && res.message.startsWith("ValidationError: User validation failed: email: Email is invalid")) {
+                    alert('Please give valid email');
                 } else {
-                    alert('Please try again');
+                    alert('Something Went Wrong try again');
                     window.location.reload();
                 }
             }).catch((err)=>{
