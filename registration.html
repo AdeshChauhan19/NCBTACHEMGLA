@@ -78,9 +78,9 @@
                             <div class="form-group">
                                 <label class="form-label text-white">Gender</label>
                                 <select name="cars" class="custom-select">
-                                    <option selected>Gender</option>
-                                    <option value="Male" id="male">Male</option>
-                                    <option value="Female" id="female">Female</option>
+                                    <option selected id="gender">Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
                                 </select>
                             </div>
                         </div>
@@ -102,9 +102,9 @@
                             <div class="form-group">
                                 <label class="form-label text-white">Category</label>
                                 <select name="cars" class="custom-select">
-                                    <option selected>Category</option>
-                                    <option value="Faculty" id="faculty">Faculty</option>
-                                    <option value="Student" id="student">Student</option>
+                                    <option selected id="category">Category</option>
+                                    <option value="Faculty">Faculty</option>
+                                    <option value="Student">Student</option>
                                 </select>
                             </div>
                         </div>
@@ -132,9 +132,9 @@
                             <div class="form-group">
                                 <label class="form-label text-white" for="customFile">Oral/Poster</label>
                                 <select name="cars" class="custom-select">
-                                    <option selected>Mode</option>
-                                    <option value="Oral" id="oral">Oral</option>
-                                    <option value="Poster" id="poster">Poster</option>
+                                    <option selected id="mode">Mode</option>
+                                    <option value="Oral">Oral</option>
+                                    <option value="Poster">Poster</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -148,17 +148,13 @@
                         <label class="custom-control-label text-white" for="customCheck">Certified that the above information is true and correct to the best of my knowledge and belief.</label>
                     </div>
                     <div class="row">
-                        <div class="col-md-4 mb-2">
+                        <div class="col-md-6 mb-2">
                             <label class="form-label text-white" for="customFile">Date</label>
                             <input data-date-format="dd/mm/yyyy" class="form-control" id="datepicker">
                         </div>
-                        <div class="col-md-4 mb-2">
+                        <div class="col-md-6 mb-2">
                             <label class="form-label text-white" for="customFile">Place</label>
                             <input class="form-control" placeholder="Place" id="place">
-                        </div>
-                        <div class="col-md-4 mb-2">
-                            <label class="form-label text-white" for="customFile">Signature</label>
-                            <input type="file" class="form-control" id="signature" />
                         </div>
                     </div>
                     <button type="submit" class="Submit btn btn-success">Submit</button>
@@ -260,68 +256,45 @@
         });
         $('#datepicker').datepicker("setDate", new Date());
     </script>
-    <!-- <script>
+    <script>
         var form = document.getElementById('form')
         form.addEventListener('submit', function(e) {
             e.preventDefault()
             const name = document.getElementById('name').value;
-            const male = document.getElementById('male').value;
-            const female = document.getElementById('female').value;
+            const gender = document.getElementById('gender').value;
             const photograph = document.getElementById('photograph');
             const designation = document.getElementById('designation').value;
             const nationality = document.getElementById('nationality').value;
-            const faculty = document.getElementById('faculty').value;
-            const student = document.getElementById('student').value;
+            const category = document.getElementById('category').value;
             const affiliation = document.getElementById('affiliation').value;
             const address = document.getElementById('address').value;
             const email = document.getElementById('email').value;
             const mobile = document.getElementById('mobile').value;
-            const oral = document.getElementById('oral').value;
-            const poster = document.getElementById('poster').value;
+            const mode = document.getElementById('mode').value;
             const title = document.getElementById('title').value;
             const place = document.getElementById('place').value;
-            const signature = document.getElementById('signature').value;
-            const input = {
-                name,
-                male,
-                female,
-                upload: photograph.files[0],
-                designation,
-                nationality,
-                faculty,
-                student,
-                affiliation,
-                address,
-                email,
-                mobile,
-                oral,
-                poster,
-                title,
-                place,
-                signature
-            }
-            console.log(input)
-            fetch(' https://174c2ca805f2.ngrok.io/upload', {
-            method: 'POST',
-            headers: {
-            'content-type': 'application/json',
-            'content-type': 'application/pdf',
-            'accept': 'application/json'
-            },
-            body: JSON.stringify({upload: photograph.files[0]})
+            var data = new FormData()
+            data.append('upload', photograph.files[0])
+            data.append('name', name)
+            data.append('gender', gender)
+            data.append('designation', designation)
+            data.append('nationality', nationality)
+            data.append('category', category)
+            data.append('affiliation', affiliation)
+            data.append('address', address)
+            data.append('email', email)
+            data.append('mobile', mobile)
+            data.append('mode', mode)
+            data.append('title', title)
+
+            fetch('http://174c2ca805f2.ngrok.io/upload', {
+                method: 'POST',
+                body: data
+            }).then((response) => {
+                alert('Form submitted successfully');
+                window.location.reload();
             })
-            .then(response => {
-            console.log("RESPONSE");
-            console.log(response)
-            return response.json()
-            }).then((res)=>{
-                console.log(res)
-            })
-            .catch(err => {
-            console.log("errr");
-            console.log(err)
-            })
-            })
-    </script> -->
+        })
+    </script>
 </body>
 </html>
