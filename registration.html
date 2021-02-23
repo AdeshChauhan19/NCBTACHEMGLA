@@ -65,7 +65,7 @@
         </div>
     </section>
     <section>
-    <form id="form" method="POST" action="https://174c2ca805f2.ngrok.io/upload" enctype="multipart/form-data">
+    <form id="form" method="POST" enctype="multipart/form-data">
         <div class="container register-form">
             <div class="form">
                 <div class="form-content">
@@ -287,12 +287,14 @@
             data.append('mode', mode)
             data.append('title', title)
 
-            fetch('http://174c2ca805f2.ngrok.io/upload', {
+            fetch('http://15cbc1ed89c1.ngrok.io/register', {
                 method: 'POST',
                 body: data
             }).then((response) => {
                 alert('Form submitted successfully');
                 window.location.reload();
+            }).catch((err)=>{
+                console.log(err)
             })
         })
     </script>
