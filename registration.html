@@ -287,7 +287,7 @@
             data.append('mode', mode)
             data.append('title', title)
 
-            fetch('http://15cbc1ed89c1.ngrok.io/register', {
+            fetch('https://ncbta-api.herokuapp.com/register', {
                 method: 'POST',
                 body: data
             }).then((response) => {
