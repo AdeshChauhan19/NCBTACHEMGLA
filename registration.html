@@ -72,90 +72,48 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="form-label text-white">Name</label>
-                                <input type="text" class="form-control" placeholder="Your Name" type="hidden" id="name" value=""/>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label text-white">Gender</label>
-                                <select name="cars" class="custom-select">
-                                    <option selected id="gender">Gender</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="form-label text-white" for="customFile">Photograph</label>
-                                <input type="file" class="form-control" accept=".pdf" name="attachFile" id="photograph"/>
+                                <label class="form-label text-white">Full Name</label>
+                                <input type="text" class="form-control" placeholder="Your Name" type="hidden" id="name" value="" required/>
                             </div>
                             <div class="form-group">
                                 <label class="form-label text-white">Designation</label>
-                                <input type="text" class="form-control" id="designation" value=""/>
+                                <input type="text" class="form-control" id="designation" value="" required/>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="form-label text-white">Nationality</label>
-                                <input type="text" class="form-control" id="nationality" value=""/>
+                                <label class="form-label text-white" for="customFile">Abstract/Manuscript(In pdf)</label>
+                                <input type="file" class="form-control" accept=".pdf" name="attachFile" id="photograph" required/>
                             </div>
                             <div class="form-group">
-                                <label class="form-label text-white">Category</label>
-                                <select name="cars" class="custom-select">
-                                    <option selected id="category">Category</option>
-                                    <option value="Faculty">Faculty</option>
-                                    <option value="Student">Student</option>
+                                <label class="form-label text-white" for="customFile">Oral/Poster</label>
+                                <select name="cars" class="custom-select" id="mode" required>
+                                    <option value="">Choose</option>
+                                    <option value="Oral">Oral</option>
+                                    <option value="Poster">Poster</option>
                                 </select>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="form-label text-white">Affiliation</label>
-                                <input type="text" class="form-control" value="" id="affiliation"/>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label text-white">Mailing Address</label>
-                                <input type="text" class="form-control" value="" id="address"/>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="form-label text-white">Email</label>
-                                <input type="text" class="form-control" value="" id="email"/>
+                                <input type="text" class="form-control" value="" id="email" required/>
                             </div>
                             <div class="form-group">
-                                <label class="form-label text-white">Mobile Number</label>
-                                <input type="text" class="form-control" value="" id="mobile"/>
+                                <label class="form-label text-white">Institutional address</label>
+                                <input type="text" class="form-control" value="" id="address" required/>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="form-label text-white" for="customFile">Oral/Poster</label>
-                                <select name="cars" class="custom-select">
-                                    <option selected id="mode">Mode</option>
-                                    <option value="Oral">Oral</option>
-                                    <option value="Poster">Poster</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label text-white">Title</label>
-                                <input type="text" class="form-control" id="title" placeholder="title of your submission" />
+                                <label class="form-label text-white">Mobile Number</label>
+                                <input type="text" class="form-control" value="" id="mobile" required/>
                             </div>
                         </div>
                     </div>
                     <div class="custom-control custom-checkbox mb-2">
-                        <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+                        <input type="checkbox" class="custom-control-input" id="customCheck" name="example1" required>
                         <label class="custom-control-label text-white" for="customCheck">Certified that the above information is true and correct to the best of my knowledge and belief.</label>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 mb-2">
-                            <label class="form-label text-white" for="customFile">Date</label>
-                            <input data-date-format="dd/mm/yyyy" class="form-control" id="datepicker">
-                        </div>
-                        <div class="col-md-6 mb-2">
-                            <label class="form-label text-white" for="customFile">Place</label>
-                            <input class="form-control" placeholder="Place" id="place">
-                        </div>
                     </div>
                     <button type="submit" class="Submit btn btn-success">Submit</button>
                 </div>
@@ -261,38 +219,35 @@
         form.addEventListener('submit', function(e) {
             e.preventDefault()
             const name = document.getElementById('name').value;
-            const gender = document.getElementById('gender').value;
             const photograph = document.getElementById('photograph');
             const designation = document.getElementById('designation').value;
-            const nationality = document.getElementById('nationality').value;
-            const category = document.getElementById('category').value;
-            const affiliation = document.getElementById('affiliation').value;
             const address = document.getElementById('address').value;
             const email = document.getElementById('email').value;
             const mobile = document.getElementById('mobile').value;
             const mode = document.getElementById('mode').value;
-            const title = document.getElementById('title').value;
-            const place = document.getElementById('place').value;
             var data = new FormData()
             data.append('upload', photograph.files[0])
             data.append('name', name)
-            data.append('gender', gender)
             data.append('designation', designation)
-            data.append('nationality', nationality)
-            data.append('category', category)
-            data.append('affiliation', affiliation)
             data.append('address', address)
             data.append('email', email)
             data.append('mobile', mobile)
             data.append('mode', mode)
-            data.append('title', title)
 
             fetch('https://ncbta-api.herokuapp.com/register', {
                 method: 'POST',
                 body: data
             }).then((response) => {
-                alert('Form submitted successfully');
-                window.location.reload();
+                console.log(response)
+                return response.json()
+            }).then((res)=>{
+                if (res.status == "ok" && res.message == "sucess") {
+                    alert('Form submitted successfully');
+                    window.location.reload();
+                } else {
+                    alert('Please try again');
+                    window.location.reload();
+                }
             }).catch((err)=>{
                 console.log(err)
             })
