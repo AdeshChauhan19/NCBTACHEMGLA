@@ -234,9 +234,6 @@
             if (photograph.files[0].name.split(/\.(?=[^\.]+$)/)[1] != 'pdf') {
                 alert("Please Upload valid pdf file")
             }
-            if (photograph.files[0].size > 500000) {
-                alert("File Size must be less than 500KB")
-            }
             fetch('https://ncbta-api.herokuapp.com/register', {
                 method: 'POST',
                 body: data
@@ -245,8 +242,8 @@
                 return response.json()
             }).then((res)=>{
                 if (res.status == "ok" && res.message == "sucess") {
-                    alert('Please Pay the Fees');
-                    window.location.href = "https://www.townscript.com/e/ncbta2021-041011";
+                    alert('Registration Sucessfully');
+                    window.location.reload();
                 } else if (res.status == "error" && res.message.startsWith("ValidationError: User validation failed: email: Email is invalid")) {
                     alert('Please give valid email');
                 } else if (res.status == "error" && res.message.startsWith("MongoError: E11000 duplicate key error collection: NCBTA_DATA.users index: email_1 dup key")) {
