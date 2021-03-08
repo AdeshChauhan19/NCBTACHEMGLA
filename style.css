@@ -133,7 +133,7 @@ body {
     padding: 0px;
 }
 .footer-section {
-  background: #000;
+  background: rgba(6, 12, 34, 0.98);
   position: relative;
 }
 .footer-cta {
