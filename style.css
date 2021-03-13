@@ -1,5 +1,5 @@
 body {
-    background-color: rgba(6, 12, 34, 0.98);
+    background-color: #050d22;
 }
 
 .carousel-item {
@@ -77,8 +77,8 @@ body {
 }
 
 .navBarDefaultColor {
-    color: rgba(6, 12, 34, 0.98);
-    background-color: rgba(6, 12, 34, 0.98);
+    color: #050d22;
+    background-color: #050d22;
 }
 
 .blockquote-custom {
