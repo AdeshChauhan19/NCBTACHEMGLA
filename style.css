@@ -175,7 +175,8 @@ body {
   margin-bottom: 30px;
 }
 .footer-logo img {
-    max-width: 100px;
+    width: 200px;
+    height: 100px;
 }
 
 .glaLogo {
