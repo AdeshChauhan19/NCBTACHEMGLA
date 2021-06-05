@@ -183,6 +183,13 @@ body {
     width: 150px;
     height: 75px;
 }
+.kllogo {
+  width: 200px;
+  height: 155px;
+}
+.mt-n1 {
+  margin-top: -3rem !important;
+}
 .footer-text p {
   margin-bottom: 14px;
   font-size: 14px;
